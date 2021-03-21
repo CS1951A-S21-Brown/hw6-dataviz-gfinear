@@ -7,21 +7,48 @@
         <link rel="stylesheet" href="main.css"/>
         <!--Feel free to add more CSS files as needed-->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     </head>
 <body>
     <div class="header">
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
-    <div class="row">
+    <div class="col">
         <div class="col-lg-6">
             <div id="graph1"></div>
+            <div class="center">
+                <button id ="button1" type="button" class="btn btn-info" onclick="setData('Movie')">Movies</button>
+                <button type="button" class="btn btn-info" onclick="setData('TV Show')">TV Shows</button>
+            </div>
             <div id="graph2"></div><br/>
+            <div id="graphflow"></div>
+        </br>
         </div>
         <div class="col-lg-6">
             <div id="graph3"></div>
+            <div id = "bargraph"></div>
+            <div id = "rect2">
+                <svg width = "200" height = "550"></svg>
+            </div>
+        </br>
+            
         </div>
     </div>
+    <div id="myDiv">
+            <p><strong>Written Questions:</strong></p>
+            <p>1) Question 1: My first graph (top left) shows the number of titles per genre on netflix. It displays every genre that netflix has and the total count of titles in that genre. Additionaly, it provides more information by providing example titles when a user moves their mouse over on of the bars. The bar graph makes it easy for users to see which genres have the most titles.</p>
+            <p>Question 2: I display the average runtime of movies by release year and tv show by release year (middle left graoh). A user can toggle between the two by pressing the coresponding button. The bar graph is sorted by release year to make it easily readable. I also provide a corresponding box plot for this graph to easily show the data distribution (middle right graph). This graphs updates to display the proper data for either movies or tv shows as well</p>
+            <p>Question 3: I choose to show the top director + actor pairs by number of movies made (top right). I chose to only display the top 30 pairs to make it more quantiifable and easier to read. Additionally, I removed any titles that did not have any directors or any cast members listed as I did not believe this provided insight into the top director + actor pairs.</p>
+            <p>Additional graph: The bottom graph is a flow chart showing countries that show the same netflix titles. I thought this provided nice insight into which countries have the same streaming interests. Each node can be hovered over to easily read the country it represents and the countries it connects to. Also the nodes are draggable to make it more interactive and easier to see which nodes are connected to which.</p>
+            <p>2) Ds3 made this project easy because it utilizes built in functionality that the browser has. This simplified my job for mouse interactions and total screen display. Additionally, it works very well with existing web technologies and can manipulate any part of the dom (document object model). This make it more flexible and doesn't limit it to certain areas of a webpage like other javascript or svg libraries. Finally, it is very convienent because it does not need to be utilized with any plug-ins and can easily be displsyed on almost any web browser. This makes what you create in ds3 highly accesible.</p>
+            <p>3) Since ds3 does not have any built-ins it takes a long time to build even simple graphs. Other languages could have been used to make easier bar-graphs, even though we would have had less creative control it would have been faster. Ds3 has limited data processing elements and as such takes large amounts of time to iterate through large portions of data. This just means that all data has to be thoroughly sorted and cleaned before being passed into any ds3 functions or else the webpage could crash. Another disadvantage is that ds3 does not work with old webrowsers. In order to see your ds3 dashboard in older webrowsers you must use a static placeholder or else you risk the webpage crashing continously. </p>
+            <p>4) I tried to make my dashboard colorblind accesible. It does not make inferences using colors that are typically harder for people to differentiate. It also does not have a seperate key matching data, all data points are labeled indivdually so someone does not have to rely on color to understand the data. Both of these recommendations were taken out of “A Comprehensive Guide to Accessible Data Visualization”. However my dashboard is not fully accesible to assitive technology. While most of my graphs are able to use with assistive technology, like I used a button for selecting movies or tv shows instead of a sliding bar, my flow graph would most likely not be able to be used by assitive technologies because it has hover overlays. The reason why I dsplayed additionaly information in a hover overlay is because it made the graph easier to read, displaying all data at once was not possible. In order to make this last chart accesible to all audiences I could have made another table that simply states the information so it could be read using assitive technology</p>
+            <p>5) I think one factor I could have implemented would have been to make it more accesible for visually impaired indivduals to access. This could be having just text based tables, or it could be using sonifaction. The reason I did not implement sonification is due to my limited capability with ds3. These extra tools that would allow our dashboard to be accesible to more people require extra coding skills and ample amount of time and understanding of the material. I believe I did implement easier factors to overcome some barriers to accesibility.</p>
+    </div>
+    
+    
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
 </body>
